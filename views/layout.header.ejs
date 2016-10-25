@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>node-session</title>
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/latest/css/bootstrap.min.css">
+<script src="//code.jquery.com/jquery.min.js"></script>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/latest/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<nav class="navbar navbar-default">
+  <div class="container">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="/">샘플앱</a>
+    </div>
+    <div>
+      <ul class="nav navbar-nav">
+        <li <%- (menu=='home') ? 'class="active"' : '' %>>
+          <a href="/">Home</a>
+        </li>
+        <li <%- (menu=='session') ? 'class="active"' : '' %>>
+          <a href="/session">Session</a>
+        </li>
+      </ul>
+    </div>
+    <% if( !session.logged_in ) { %>
+    <div class="navbar-text navbar-right">
+        <a href="/login" class="navbar-link">로그인</a>
+    </div>
+    <% } else { %>
+    <div class="navbar-text navbar-right">
+        사용자: <b><%= session.user_id %></b>&nbsp;&nbsp;
+        <a href="/logout" class="navbar-link">로그아웃</a>
+    </div>
+    <% } %>
+  </div>
+</nav>

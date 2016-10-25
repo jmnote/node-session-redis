@@ -1,0 +1,51 @@
+<% var menu='session'; %>
+<% include layout.header.ejs %>
+
+<div class='container'>
+  <table class='table table-striped table-bordered'>
+    <caption>Server info</caption>
+    <tr>
+      <th>instance_index</td>
+      <th>instance_id</td>
+    </tr>
+    <tr>
+      <td><%= vcap_application.instance_index %></td>
+      <td><%= vcap_application.instance_id %></td>
+    </tr>
+  </table>
+</div>  
+
+<div class='container'>
+  <table class='table table-striped table-bordered'>
+    <caption>Your Session</caption>
+    <tr>
+      <th>sessionID</td>
+      <th>session</td>
+    </tr>
+    <tr>
+      <td><%= sessionID %></td>
+      <td><%- JSON.stringify(session) %></td>
+    </tr>
+  </table>
+</div>
+
+<div class='container'>
+  <table class='table table-striped table-bordered'>
+    <caption>Session List</caption>
+    <tr>
+      <th>#</th>
+      <th>key</th>
+      <th>value</th>
+    </tr>
+    <% sessions.forEach(function(session, index){ %>
+    <tr>
+      <td><%= index %></td>
+      <td><%= session.key %></td>
+      <td><%= session.value %></td>
+    </tr>
+    <% }); %>
+  </table>
+</div>
+
+<% include layout.footer.ejs %>
+ 

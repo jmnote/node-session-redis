@@ -1,0 +1,11 @@
+---
+applications:
+- name: session
+  memory: 32M
+  command: node ./bin/www
+  instances: 1
+  #random-route: true
+  buildpack: https://github.com/cloudfoundry/nodejs-buildpack
+  services:
+  - redis1
+
