@@ -13,7 +13,7 @@ router.get('/login', function(req, res, next) {
 });
 
 router.post('/login', function(req, res, next) {
-  if( req.body.pw == 'frontier' ) {
+  if( req.body.pw == 'test' ) {
     req.session.regenerate( function(){
       req.session.logged_in = true;
       req.session.user_id = req.body.id;
